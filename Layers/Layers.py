@@ -1,4 +1,4 @@
-from TensorFolder.Tensors import Tensor
+from Tensor.Tensors import Tensor
 
 
 class Layer():
