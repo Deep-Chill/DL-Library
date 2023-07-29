@@ -41,13 +41,44 @@ class ActivationLayer(Layer):
         return self.activation_derivative(self.input) * output_error
 
 class NNCompiler():
-    def __init__(self, input_size, n_layers, activation_function, activation_function_derivative):
+    def __init__(self, input_size, n_layers, activation_function, activation_derivative, input_data, model_architecture, epochs):
         self.input_size = input_size
         self.n_layers = n_layers
         self.activation_function = activation_function
-        self.activation_function_derivative = activation_function_derivative
+        self.activation_derivative = activation_derivative
+        self.input_data = input_data
+        self.architecture = model_architecture
+        self.layer_order = self.architecture.layer_order
+        self.layer_sizes = self.architecture.layer_sizes
+        self.layer_outputs = self.architecture.layer_outputs
+        self.epochs = epochs
+
+    def first_layer(self):
+        pass
+
+    def forward_propagate(self):
+        for i in range(self.n_layers):
+            
 
 
+
+
+    def backward_propagate(self):
+        for i in range(self.n_layers):
+
+
+
+
+# A model architecture class to define the order of layers in the model.
+# The model architecture will be a list with dictionaries in the shape:
+# [{'type': 'FC', 'layer_size': 10, 'output_size': 5}, {'type': 'AL', 'size': 10, 'output_size': 10}]
+# Each item will be a layer. Each item has details about the layer.
+class ModelArchitecture():
+    def __init__(self, input):
+        self.architecture = input
+        self.layer_order = [i('type') for i in self.architecture]
+        self.layer_sizes = [i('layer_size') for i in self.architecture]
+        self.layer_outputs = [i('output_size') for i in self.architecture]
 
 
 
