@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Tensor:
 
     def __init__(self, data, requires_grad=False):
@@ -10,7 +11,7 @@ class Tensor:
     def __str__(self):
         return str(self.data)
 
-    #Returning everything as a Tensor class object.
+    # Returning everything as a Tensor class object.
 
     def __add__(self, other):
         return Tensor(self.data + other.data)
@@ -19,11 +20,11 @@ class Tensor:
         return Tensor(self.data - other.data)
 
     def __mul__(self, other):
-        #Element-wise multiplication
+        # Element-wise multiplication
         return Tensor(self.data * other.data)
 
     def matmul(self, other):
-        #Matrix Multiplication
+        # Matrix Multiplication
         return Tensor(np.dot(self.data, other.data))
 
     def sum(self):
@@ -40,8 +41,6 @@ class Tensor:
 
     def shape(self):
         return self.data.shape
-
-
 
 
 t1 = Tensor([1, 2, 3])
