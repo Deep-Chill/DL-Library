@@ -1,6 +1,7 @@
-from Layers import Layer
-from FullyConnectedLayer import FullyConnectedLayer
+# from Layers import Layer
 import numpy as np
+
+from .Layers import Layer
 
 
 # Remember, the activation function isn't necessarily about deciding whether a neuron's output is passed to the next

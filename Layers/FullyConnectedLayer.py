@@ -1,4 +1,4 @@
-from Layers import Layer
+from .Layers import Layer
 import numpy as np
 
 
@@ -42,7 +42,7 @@ class FullyConnectedLayer(Layer):
 
 # class NNCompiler():
 #     def __init__(self, input_size, n_layers, activation_function, activation_derivative, input_data, model_architecture,
-#                  epochs, labels):
+#                  epochs, target):
 #         self.input_size = input_size
 #         self.n_layers = n_layers
 #         self.activation_function = activation_function
@@ -62,14 +62,14 @@ class FullyConnectedLayer(Layer):
 #                 al_layer = ActivationLayer(self.activation_function, self.activation_derivative)
 #                 self.list_of_layers.append(al_layer)
 #         self.list_of_outputs = []
-#         self.labels = labels
+#         self.target = target
 #
 #         # if isinstance(self.list_of_layers[-1], FullyConnectedLayer):
-#         #     if len(self.labels) != self.list_of_layers[-1].output:
-#         #         raise ValueError("The size of labels does not match the size of output of the final layer in the nn")
+#         #     if len(self.target) != self.list_of_layers[-1].output:
+#         #         raise ValueError("The size of target does not match the size of output of the final layer in the nn")
 #         # elif isinstance(self.list_of_layers[-1], ActivationLayer):
-#         #     if len(self.labels) != self.list_of_layers[-2].output:
-#         #         raise ValueError("The size of labels does not match the size of output of the final layer in the nn")
+#         #     if len(self.target) != self.list_of_layers[-2].output:
+#         #         raise ValueError("The size of target does not match the size of output of the final layer in the nn")
 #
 #
 #     def first_layer(self):
@@ -102,16 +102,3 @@ class FullyConnectedLayer(Layer):
 #         self.layer_type = [i('type') for i in self.architecture]
 #         self.layer_size = [i('layer_size') for i in self.architecture]
 #         self.layer_output_size = [i('output_size') for i in self.architecture]
-#
-
-
-
-
-
-
-
-
-
-
-
-
