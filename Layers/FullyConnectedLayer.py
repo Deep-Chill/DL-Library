@@ -13,13 +13,21 @@ class FullyConnectedLayer(Layer):
 
         return self.output
 
-    def backward_propagation(self, output_error, learning_rate):
-        # the "input error" is a measure of "how wrong" each neuron in the input layer was during the forward pass
-        input_error = np.dot(output_error, self.weights.T)
-        weights_error = np.dot(self.input.T, output_error)
+    def backward_propagation(self, output_error, learning_rate, input):
+        # print(f"output_error shape: {output_error.shape}")
+        # print(f"self.weights shape: {self.weights.shape}")
+        # print(f"self.weights.T shape: {self.weights.T.shape}")
+        # print('input: ', input, 'output_error: ', output_error)
+        # print(input)
+        # print(output_error.T)
 
-        self.weights -= learning_rate * weights_error
-        self.bias -= learning_rate * output_error
+
+        # the "input error" is a measure of "how wrong" each neuron in the input layer was during the forward pass
+        input_error = np.dot(np.swapaxes(output_error, 0, 1), self.weights.T)
+        weights_error = np.dot(input, output_error.T)
+
+        self.weights = self.weights - (learning_rate * weights_error)
+        self.biases = self.biases - learning_rate * output_error
         return input_error
 
 
